@@ -37,7 +37,7 @@ ul{
     height: -webkit-calc(var(--vh,1vh) * 100);
     height: -moz-calc(var(--vh,1vh) * 100);
     height: calc(var(--vh,1vh) * 100);
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -58,7 +58,7 @@ nav.navigation ul {
     height: -webkit-calc(var(--vh,1vh) * 100);
     height: -moz-calc(var(--vh,1vh) * 100);
     height: calc(var(--vh,1vh) * 100);
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -96,7 +96,7 @@ nav.navigation ul li:not(.logo) > a {
 }
 
 nav.navigation ul li > a {
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -125,7 +125,7 @@ nav.navigation ul li > a:focus, nav.navigation ul li > a:hover {
 }
 
 .content {
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -139,7 +139,7 @@ nav.navigation ul li > a:focus, nav.navigation ul li > a:hover {
 }
 
 .content .sidebar-group {
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -161,7 +161,7 @@ nav.navigation ul li > a:focus, nav.navigation ul li > a:hover {
     overflow: hidden;
     width: 350px;
     height: 100vh;
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -181,7 +181,7 @@ nav.navigation ul li > a:focus, nav.navigation ul li > a:hover {
 }
 
 .content .sidebar-group .sidebar > header {
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -237,7 +237,7 @@ svg{
     -moz-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -256,7 +256,7 @@ svg{
 }
 
 .sidebar-body{
-    overflow: scroll!important;
+    overflow-y: scroll!important;
 }
 
 .list-group {
@@ -270,7 +270,7 @@ svg{
 
 .content .sidebar-group .sidebar .list-group-item {
     padding: 17px 30px;
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -290,7 +290,7 @@ svg{
     flex: 1;
     position: relative;
     min-width: 0;
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -299,7 +299,7 @@ svg{
 
 .content .sidebar-group .sidebar .list-group-item .users-list-body > div:first-child {
     min-width: 0;
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -358,7 +358,7 @@ figure.profile-pic img{
 }
 
 .content .chat .chat-header {
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -373,7 +373,7 @@ figure.profile-pic img{
 }
 
 .content .chat .chat-header .chat-header-user {
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -428,7 +428,7 @@ h5{
 }
 
 .chat-header{
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -443,7 +443,7 @@ h5{
 }
 
 .chat-header .chat-header-user {
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -485,7 +485,8 @@ h5{
     -moz-box-direction: normal;
     -ms-flex-direction: column;
     align-items: flex-start;
-    overflow-y: scroll; 
+
+    display: -webkit-flexbox;
 }
 
 figure{
@@ -502,7 +503,7 @@ figure{
     -moz-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end;
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -532,7 +533,7 @@ figure{
     -moz-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-start;
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -609,7 +610,7 @@ figure{
 }
 
 form{
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -630,7 +631,7 @@ form{
 }
 
 .layout .content .sidebar-group .sidebar > header {
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -677,7 +678,7 @@ figure.avatar-xl > img {
 }
 
 .user-info, .description-info, .number-of-participants{
-    display: -webkit-box;
+    display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
