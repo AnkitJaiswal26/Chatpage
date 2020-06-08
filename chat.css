@@ -6,9 +6,8 @@
     box-sizing: border-box;
 }
 
-body{
-    height: 100vh;
-    width: 100%;
+body:not(.form-membership) {
+    overflow: hidden;
 }
 
 p{
@@ -37,11 +36,13 @@ ul{
     height: -webkit-calc(var(--vh,1vh) * 100);
     height: -moz-calc(var(--vh,1vh) * 100);
     height: calc(var(--vh,1vh) * 100);
+    height: 100vh;
     display: -webkit-flexbox;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
+    width: 100vw;
 }
 
 nav.navigation {
@@ -130,6 +131,7 @@ nav.navigation ul li > a:focus, nav.navigation ul li > a:hover {
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
+    overflow: hidden;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -moz-box-flex: 1;
