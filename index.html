@@ -1,126 +1,727 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">         <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+        <link rel="stylesheet" href="chat.css">
+    </head>
+    <body>
+        <div class="layout">
+            <nav class="navigation">
+                <div class="nav-group">
+                    <ul>
+                        <li>
+                            <a class="active" data-navigation-target="chats" href="#" data-toggle="tooltip" title="" data-placement="right" data-original-title="Chats">
+                                <span class="badge badge-warning"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="dark-light-switcher" data-toggle="tooltip" title="" data-placement="right" data-original-title="Dark mode">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                            </a>
+                        </li>
+                        <li data-toggle="tooltip" title="" data-placement="right" data-original-title="User menu">
+                            <a href="./login.html" data-toggle="dropdown">
+                                <figure class="avatar">
+                                    <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
+                                </figure>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item" data-toggle="modal" data-target="#editProfileModal">Edit
+                                profile</a>
+                                <a href="#" class="dropdown-item" data-navigation-target="contact-information">Profile</a>
+                                <a href="#" class="dropdown-item" data-toggle="modal" data-target="#settingModal">Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="login.html" class="dropdown-item text-danger">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="content">
+                <div class="sidebar-group">
+                    <div class="sidebar active">
+                        <header>
+                            <span class="pull-left" style="font-size: 23px;">Chats</span>
+                            <ul class="list-inline">
+                                <li class="list-inline-item" data-toggle="tooltip" title="" data-original-title="New group">
+                                    <a class="btn btn-outline-light" href="#" data-toggle="modal" data-target="#newGroup">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="btn btn-outline-light" data-toggle="tooltip" title="" href="#" data-navigation-target="friends" data-original-title="New chat">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item d-xl-none d-inline">
+                                    <a href="#" class="btn btn-outline-light text-danger sidebar-close">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </header>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500&family=Poppins&display=swap" rel="stylesheet">
-    <style>
-      .header{
-        background-color:cerulean;
+                        <form>
+                            <input type="text" class="form-control" placeholder="Search chats">
+                        </form>
+                        <div class="sidebar-body" style="overflow: hidden; outline: currentcolor none medium;" tabindex="2">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item open-chat">
+                                    <div>
+                                        <figure class="avatar">
+                                            <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
+                                        </figure>
+                                    </div>
+                                    <div class="users-list-body">
+                                        <div>
+                                            <h5>Friend</h5>
+                                            <p>Good luck with </p>
+                                        </div>
+                                        <div class="users-list-action">
+                                            <small class="text-muted">11:05 AM</small>
+                                            <div class="action-toggle">
+                                                <div class="dropdown">
+                                                    <a data-toggle="dropdown" href="#">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="#" class="dropdown-item">Open</a>
+                                                        <a href="#" data-navigation-target="contact-information" class="dropdown-item">Profile</a>
+                                                        <a href="#" class="dropdown-item">Add to archive</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item text-danger">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div>
+                                        <figure class="avatar">
+                                            <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
+                                        </figure>
+                                    </div>
+                                    <div class="users-list-body">
+                                        <div>
+                                            <h5>user</h5>
+                                            <p>I ja; ;jd ;d;s djdf </p>
+                                        </div>
+                                        <div class="users-list-action">
+                                            <small class="text-muted">03:41 PM</small>
+                                            <div class="action-toggle">
+                                                <div class="dropdown">
+                                                    <a data-toggle="dropdown" href="#">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="#" class="dropdown-item">Open</a>
+                                                        <a href="#" data-navigation-target="contact-information" class="dropdown-item">Profile</a>
+                                                        <a href="#" class="dropdown-item">Add to archive</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item text-danger">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <figure class="avatar">
+                                        <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
+                                    </figure>
+                                    <div class="users-list-body">
+                                        <div>
+                                            <h5> Friend</h5>
+                                            <p><strong>dfk;j  dskj </strong>Hello!!!</p>
+                                        </div>
+                                        <div class="users-list-action">
+                                            <small class="text-muted">Yesterday</small>
+                                            <div class="action-toggle">
+                                                <div class="dropdown">
+                                                    <a data-toggle="dropdown" href="#">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="#" class="dropdown-item">Open</a>
+                                                        <a href="#" data-navigation-target="contact-information" class="dropdown-item">Profile</a>
+                                                        <a href="#" class="dropdown-item">Add to archive</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item text-danger">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div>
+                                        <figure class="avatar avatar-state-warning">
+                                            <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
+                                        </figure>
+                                    </div>
+                                    <div class="users-list-body">
+                                        <div>
+                                            <h5>James</h5>
+                                            <p>
+                                                Hii
+                                            </p>
+                                        </div>
+                                        <div class="users-list-action">
+                                            <small class="text-muted">03:41 PM</small>
+                                            <div class="action-toggle">
+                                                <div class="dropdown">
+                                                    <a data-toggle="dropdown" href="#">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="#" class="dropdown-item">Open</a>
+                                                        <a href="#" data-navigation-target="contact-information" class="dropdown-item">Profile</a>
+                                                        <a href="#" class="dropdown-item">Add to archive</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item text-danger">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div>
+                                        <figure class="avatar">
+                                            <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
+                                        </figure>
+                                    </div>
+                                    <div class="users-list-body">
+                                        <div>
+                                            <h5>Friend 1</h5>
+                                            <p>Have you prepared?</p>
+                                        </div>
+                                        <div class="users-list-action">
+                                            <small class="text-muted">Yesterday</small>
+                                            <div class="action-toggle">
+                                                <div class="dropdown">
+                                                    <a data-toggle="dropdown" href="#">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="#" class="dropdown-item">Open</a>
+                                                        <a href="#" data-navigation-target="contact-information" class="dropdown-item">Profile</a>
+                                                        <a href="#" class="dropdown-item">Add to archive</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item text-danger">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div>
+                                        <figure class="avatar">
+                                            <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
+                                        </figure>
+                                    </div>
+                                    <div class="users-list-body">
+                                        <div>
+                                            <h5>Friend</h5>
+                                            <p>Where are you?</p>
+                                        </div>
+                                        <div class="users-list-action">
+                                            <small class="text-muted">03:41 PM</small>
+                                            <div class="action-toggle">
+                                                <div class="dropdown">
+                                                    <a data-toggle="dropdown" href="#">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="#" class="dropdown-item">Open</a>
+                                                        <a href="#" data-navigation-target="contact-information" class="dropdown-item">Profile</a>
+                                                        <a href="#" class="dropdown-item">Add to archive</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item text-danger">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div>
+                                        <figure class="avatar">
+                                            <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image"> 
+                                        </figure>
+                                    </div>
+                                    <div class="users-list-body">
+                                        <div>
+                                            <h5>Friend</h5>
+                                            <p>skdjl ldj jl kjlfdk </p>
+                                        </div>
+                                        <div class="users-list-action">
+                                            <small class="text-muted">03:41 PM</small>
+                                            <div class="action-toggle">
+                                                <div class="dropdown">
+                                                    <a data-toggle="dropdown" href="#">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="#" class="dropdown-item">Open</a>
+                                                        <a href="#" data-navigation-target="contact-information" class="dropdown-item">Profile</a>
+                                                        <a href="#" class="dropdown-item">Add to archive</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item text-danger">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div>
+                                        <figure class="avatar">
+                                            <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
+                                        </figure>
+                                    </div>
+                                    <div class="users-list-body">
+                                        <div>
+                                            <h5>user</h5>
+                                            <p>Reports.</p>
+                                        </div>
+                                        <div class="users-list-action">
+                                            <small class="text-muted">03:41 PM</small>
+                                            <div class="action-toggle">
+                                                <div class="dropdown">
+                                                    <a data-toggle="dropdown" href="#">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="#" class="dropdown-item">Open</a>
+                                                        <a href="#" data-navigation-target="contact-information" class="dropdown-item">Profile</a>
+                                                        <a href="#" class="dropdown-item">Add to archive</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item text-danger">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div>
+                                        <figure class="avatar">
+                                            <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
+                                        </figure>
+                                    </div>
+                                    <div class="users-list-body">
+                                        <div>
+                                            <h5>Friend</h5>
+                                            <p>please.</p>
+                                        </div>
+                                        <div class="users-list-action">
+                                            <small class="text-muted">03:41 PM</small>
+                                            <div class="action-toggle">
+                                                <div class="dropdown">
+                                                    <a data-toggle="dropdown" href="#">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="#" class="dropdown-item">Open</a>
+                                                        <a href="#" data-navigation-target="contact-information" class="dropdown-item">Profile</a>
+                                                        <a href="#" class="dropdown-item">Add to archive</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item text-danger">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div>
+                                        <figure class="avatar">
+                                            <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
+                                        </figure>
+                                    </div>
+                                    <div class="users-list-body">
+                                        <div>
+                                            <h5>Friend 1</h5>
+                                            <p>Hii</p>
+                                        </div>
+                                        <div class="users-list-action">
+                                            <small class="text-muted">03:41 PM</small>
+                                            <div class="action-toggle">
+                                                <div class="dropdown">
+                                                    <a data-toggle="dropdown" href="#">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="#" class="dropdown-item">Open</a>
+                                                        <a href="#" data-navigation-target="contact-information" class="dropdown-item">Profile</a>
+                                                        <a href="#" class="dropdown-item">Add to archive</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="#" class="dropdown-item text-danger">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-        height:90px;
-      }
-      body{
-        background-color:#1bcdd7;
-      }
-      p{
-font-family: 'Poppins', sans-serif;
-        color:white; !important;
-        font-size:3vw ;
-      }
-      .add{margin-right:1%;margin-bottom:5px;margin-top:5px;}
-      h1{color:white;margin:3% 1%;font-size:5vw;}
+                <div class="chat">
+                    <div class="chat-header">
+                        <div class="chat-header-user">
+                            <figure class="avatar mr-2">
+                                <img src="./card-profile1-square.jpg" class="rounded-circle pull-left" alt="image" style="border-radius: 50%; height: 2.3rem; width: 2.3rem; margin-right: 10px;">
+                            </figure>
+                            <div>
+                                <h5 class="mb-0">Friend</h5>
+                                <small class="text-success">
+                                    <i>typing...</i>
+                                </small>
+                            </div>
+                        </div>
+                        <ul class="list-inline">
+                            <li class="list-inline-item d-xl-none d-inline">
+                                <a href="#" class="btn btn-outline-light mobile-navigation-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                                </a>
+                            </li>
+                            <li class="list-inline-item" data-toggle="tooltip" title="" data-original-title="Voice call">
+                                <a href="#" class="btn btn-outline-light text-success">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="black" d="M15.9 14.3H15l-.3-.3c1-1.1 1.6-2.7 1.6-4.3 0-3.7-3-6.7-6.7-6.7S3 6 3 9.7s3 6.7 6.7 6.7c1.6 0 3.2-.6 4.3-1.6l.3.3v.8l5.1 5.1 1.5-1.5-5-5.2zm-6.2 0c-2.6 0-4.6-2.1-4.6-4.6s2.1-4.6 4.6-4.6 4.6 2.1 4.6 4.6-2 4.6-4.6 4.6z"></path></svg>
+                                </a>
+                            </li>
+                            <li class="list-inline-item" data-toggle="tooltip" title="">
+                                <a href="#" class="btn btn-outline-light text-warning" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="black" d="M1.816 15.556v.002c0 1.502.584 2.912 1.646 3.972s2.472 1.647 3.974 1.647a5.58 5.58 0 0 0 3.972-1.645l9.547-9.548c.769-.768 1.147-1.767 1.058-2.817-.079-.968-.548-1.927-1.319-2.698-1.594-1.592-4.068-1.711-5.517-.262l-7.916 7.915c-.881.881-.792 2.25.214 3.261.959.958 2.423 1.053 3.263.215l5.511-5.512c.28-.28.267-.722.053-.936l-.244-.244c-.191-.191-.567-.349-.957.04l-5.506 5.506c-.18.18-.635.127-.976-.214-.098-.097-.576-.613-.213-.973l7.915-7.917c.818-.817 2.267-.699 3.23.262.5.501.802 1.1.849 1.685.051.573-.156 1.111-.589 1.543l-9.547 9.549a3.97 3.97 0 0 1-2.829 1.171 3.975 3.975 0 0 1-2.83-1.173 3.973 3.973 0 0 1-1.172-2.828c0-1.071.415-2.076 1.172-2.83l7.209-7.211c.157-.157.264-.579.028-.814L11.5 4.36a.572.572 0 0 0-.834.018l-7.205 7.207a5.577 5.577 0 0 0-1.645 3.971z"></path></svg>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-outline-light" data-toggle="dropdown">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <button onclick="profileopen()" id="profiletoggle" style="padding-left: 24; padding: 4px 24px; width: 100%; border: 0px; background-color: white;">
+                                        Profile
+                                    </button>
+                                    <a href="#" class="dropdown-item">Add to archive</a>
+                                    <a href="#" class="dropdown-item" style="text-align: center;">Delete</a>
+                                    <div class="dropdown-divider" style="text-align: center;"></div>
+                                    <a href="#" class="dropdown-item text-danger" style="text-align: center;">Block</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="chatbox ">
+                        <div class="d-flex messages">
+                            <div class="friend mr-auto">
 
+                                <div class="chat-message-box">
+                                    <div class="profile-friend mr-auto">
+                                        <figure class="profile-pic">
+                                            <img class="mr-3" src="./card-profile1-square.jpg" alt="image" width="50px" height="50px" border-radius= "50%">
+                                        </figure>
+                                        <div class="profile-info">
+                                            <h5 class="mt-0 mb-0">Media heading</h5>
+                                            <p> 10:47</p>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <p>HIII</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user ml-auto">
+                                <div class="chat-message-box">
+                                    <div class="profile-user ml-auto">
+                                        <figure class="profile-pic">
+                                            <img class="mr-3" src="./card-profile1-square.jpg" alt="image" width="50px" height="50px" border-radius= "50%">
+                                        </figure>
+                                        <div class="profile-info">
+                                            <h5 class="mt-0 mb-0">Media heading</h5>
+                                            <p> 10:43</p>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <p>I am fine</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user ml-auto">
+                                <div class="chat-message-box">
+                                    <div class="profile-user ml-auto">
+                                        <figure class="profile-pic">
+                                            <img class="mr-3" src="./card-profile1-square.jpg" alt="image" width="50px" height="50px" border-radius= "50%">
+                                        </figure>
+                                        <div class="profile-info">
+                                            <h5 class="mt-0 mb-0">Media heading</h5>
+                                            <p> 10:43</p>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <p>How are you</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="friend mr-auto">
 
+                                <div class="chat-message-box">
+                                    <div class="profile-friend mr-auto">
+                                        <figure class="profile-pic">
+                                            <img class="mr-3" src="./card-profile1-square.jpg" alt="image" width="50px" height="50px" border-radius= "50%">
+                                        </figure>
+                                        <div class="profile-info">
+                                            <h5 class="mt-0 mb-0">Media heading</h5>
+                                            <p> 10:47</p>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <p>Lets chat. pl type somthing</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user ml-auto">
+                                <div class="chat-message-box">
+                                    <div class="profile-user ml-auto">
+                                        <figure class="profile-pic">
+                                            <img class="mr-3" src="./card-profile1-square.jpg" alt="image" width="50px" height="50px" style="border-radius: 50%;">
+                                        </figure>
+                                        <div class="profile-info">
+                                            <h5 class="mt-0 mb-0">Media heading</h5>
+                                            <p> 10:43</p>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <p>hello indialjl lkj lfjk jljlkj lkjlj kjlj ljlkjlj lkj ljlk jljl kjljlkjljlkjlj</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="friend mr-auto">
 
-  .aryan{width:90%;height:0px;border-style:none;border-top-style: solid;border-color:white;border-width:2px;}
-  .part{margin-left:10%;background-color:;margin-right:10%;margin-top: 0px;margin-bottom: 0px;}
-.maha{background-color:#52B2BF;width:70%;margin:20px auto;border:10px;}
-      </style>
-    <title>groupinfo</title>
-  </head>
+                                <div class="chat-message-box">
+                                    <div class="profile-friend mr-auto">
+                                        <figure class="profile-pic">
+                                            <img class="mr-3" src="./card-profile1-square.jpg" alt="image" width="50px" height="50px" style="border-radius: 50%;">
+                                        </figure>
+                                        <div class="profile-info">
+                                            <h5 class="mt-0 mb-0">Media heading</h5>
+                                            <p> 10:47</p>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <p>hello indialjl lkj lfjk jljlkj lkjlj kjlj ljlkjlj lkj ljlk jljl kjljlkjljlkjlj</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user ml-auto">
+                                <div class="chat-message-box">
+                                    <div class="profile-user ml-auto">
+                                        <figure class="profile-pic">
+                                            <img class="mr-3" src="./card-profile1-square.jpg" alt="image" width="50px" height="50px" style="border-radius: 50%;">
+                                        </figure>
+                                        <div class="profile-info">
+                                            <h5 class="mt-0 mb-0">Media heading</h5>
+                                            <p> 10:43</p>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <p>hello indialjl lkj lfjk jljlkj lkjlj kjlj ljlkjlj lkj ljlk jljl kjljlkjljlkjlj</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="friend mr-auto">
 
-
-  <body>
-  <div class="header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#151E3D;">
-      <a class="navbar-brand pull-left" href="#" style="font-family: 'Pacifico', cursive;color:#151E3D">
-
-        <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/65/back-with-leftwards-arrow-above_1f519.png" style="margin-bottom:1%;height:auto;width:5%;">
-        <h1 style="display:inline-block;color:#0492C2;font-family: 'Poppins', sans-serif;">Group info</h1>
-    </a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link "  href="#"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/241/pen_1f58a.png" style="height:40px;width:40px;"><p style="display:inline;font-size:6px !important ;">Change Name<br><span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-           <a class="nav-link "  href="#"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/65/heavy-plus-sign_2795.png" style="height:40px;width:40px;"><p style="display:inline;font-size:6px !important ;">Add a Meetifier<br></a>
-        </li>
-
-
-      </ul>
-
-    </div>
-  </nav>
-    <!-- Image and text -->
-
-
-
-
-
-    </div>
-    <br><br><br>
-    <div class="profilepic">
-      <img src="https://media.gettyimages.com/videos/india-flag-loopable-video-id590544878?s=640x640" style="width:50%;height:auto;margin:20px 25%;border-radius:50%;">
-      </div>
-      <hr>
-      <div class="description"><br>
-        <p style="color:white;margin-left:5%;">Description</p>
-        <p style="color:white;margin-left:5%;">Jai Hind!Jai Hind!Jai Hind!</p>
-    <!-- Optional JavaScript -->
-
-          <br>
-              <div class="maha">
-            <p style="color:white;margin-left:5%;">Group Participants</p>
-          <br>
-
-          <div class="part">
-              <img src="https://nayadaur.tv/wp-content/uploads/2018/06/bhagat-singh-ji-650x394.jpg" style="height:80px;width:80px;border-radius:50%">
-                <p style="color:white;margin-left:5%;display:inline;">Bhagat Singh</p>
-
+                                <div class="chat-message-box">
+                                    <div class="profile-friend mr-auto">
+                                        <figure class="profile-pic">
+                                            <img class="mr-3" src="./card-profile1-square.jpg" alt="image" width="50px" height="50px" style="border-radius: 50%;">
+                                        </figure>
+                                        <div class="profile-info">
+                                            <h5 class="mt-0 mb-0">Media heading</h5>
+                                            <p> 10:47</p>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <p>hello indialjl lkj lfjk jljlkj lkjlj kjlj ljlkjlj lkj ljlk jljl kjljlkjljlkjlj</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user ml-auto">
+                                <div class="chat-message-box">
+                                    <div class="profile-user ml-auto">
+                                        <figure class="profile-pic">
+                                            <img class="mr-3" src="./card-profile1-square.jpg" alt="image" width="50px" height="50px" style="border-radius: 50%;">
+                                        </figure>
+                                        <div class="profile-info">
+                                            <h5 class="mt-0 mb-0">Media heading</h5>
+                                            <p> 10:43</p>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <p>hello indialjl lkj lfjk jljlkj lkjlj kjlj ljlkjlj lkj ljlk jljl kjljlkjljlkjlj</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="type-section">
+                        <form class="form mb-14">
+                            <div class="">
+                                <button class="btn btn-light mr-3" data-toggle="tooltip" title="" type="button" data-original-title="Emoji">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                                </button>
+                            </div>
+                            <input type="text" name="" class="form-control" placeholder="Type a message">
+                            <div class="form-buttons">
+                                <button class="btn btn-primary submit" type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="sidebar-group mobile-open">
+            		<div id="contact-information" class="sidebar" style="overflow-y: scroll;">
+            			<header>
+            				<span>Profile</span>
+                    		<ul class="list-inline">
+                        		<li class="list-inline-item mr-auto">
+                            		<button id="profile-close" onclick="profileclose()" class="btn btn-outline-light text-danger sidebar-close">
+                                	    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                    </button>
+    	    	                </li>
+                		    </ul>
+            			</header>
+            			<div class="pl-4 pr-4">
+            				<div class="text-center">
+                            	<figure class="avatar avatar-xl mb-4">
+                                	<img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
+                            	</figure>
+	                        </div>
+	                        <div class="user-info mb-3 pb-4">
+	                        	<span class="group pull-left">
+	                        		<h4 class="mb-0">Friend</h4>
+	                        		<small>Created on 24/06/2020</small>
+	                        	</span>
+	                        	<ul class="list-inline">
+                        			<li class="list-inline-item mr-auto">
+                            			<a href="#" class="btn btn-outline-light text-danger sidebar-close">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#919191" d="M3.95 16.7v3.4h3.4l9.8-9.9-3.4-3.4-9.8 9.9zm15.8-9.1c.4-.4.4-.9 0-1.3l-2.1-2.1c-.4-.4-.9-.4-1.3 0l-1.6 1.6 3.4 3.4 1.6-1.6z"></path></svg>
+		    	                        </a>
+    		    	                </li>
+        	        		    </ul>
+	                        </div>
+	                        <div class="description mb-7">
+	                        	<div class="">
+	                        		<h5 style="color: #009688;">Description</h5>
+	                        	</div>
+	                        	<div class="description-info mb-7">
+	                        		<span class="pull-left">Meetify...</span>
+	                        		<ul class="list-inline">
+                        				<li class="list-inline-item mr-auto">
+	                            			<a href="#" class="btn btn-outline-light text-danger sidebar-close">
+    	                        	    		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#919191" d="M3.95 16.7v3.4h3.4l9.8-9.9-3.4-3.4-9.8 9.9zm15.8-9.1c.4-.4.4-.9 0-1.3l-2.1-2.1c-.4-.4-.9-.4-1.3 0l-1.6 1.6 3.4 3.4 1.6-1.6z"></path></svg>
+	    		            	            </a>
+    	    		    	            </li>
+                				    </ul>
+	                        	</div>
+	                        </div>
+	                        <div class="participants">
+	                        	<div class="number-of-participants mb-2">
+	                        		<span>2 Participants</span>
+	                        		<ul class="list-inline">
+                        				<li class="list-inline-item mr-auto">
+                            				<a href="#" class="btn btn-outline-light text-danger sidebar-close">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="black" d="M15.9 14.3H15l-.3-.3c1-1.1 1.6-2.7 1.6-4.3 0-3.7-3-6.7-6.7-6.7S3 6 3 9.7s3 6.7 6.7 6.7c1.6 0 3.2-.6 4.3-1.6l.3.3v.8l5.1 5.1 1.5-1.5-5-5.2zm-6.2 0c-2.6 0-4.6-2.1-4.6-4.6s2.1-4.6 4.6-4.6 4.6 2.1 4.6 4.6-2 4.6-4.6 4.6z"></path></svg>
+			    	                        </a>
+    			    	                </li>
+        		        		    </ul>
+	                        	</div>
+	                        	<!----gggggggggggggggggggggggggggh------->
+	                        	<ul class="list-group list-group-flush">
+                                	<li class="list-group-item">
+                                    	<div>
+                                        	<figure class="avatar">
+	                                            <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
+    	                                    </figure>
+        	                            </div>
+            	                        <div class="users-list-body">
+                	                        <div>
+                    	                        <h5>Friend</h5>
+                        	                    
+                            	            </div>
+                                	        <div class="users-list-action">
+                                        	    <div class="action-toggle">
+                                            	    <div class="dropdown">
+                                                	    <a data-toggle="dropdown" href="#">
+                                                    	    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+	                                                    </a>
+    	                                                <div class="dropdown-menu dropdown-menu-right">
+        	                                                <a href="#" class="dropdown-item">Open</a>
+            	                                            <a href="#" data-navigation-target="contact-information" class="dropdown-item">Profile</a>
+	                                                        <a href="#" class="dropdown-item">Add to archive</a>
+	                                                        <div class="dropdown-divider"></div>
+    	                                                    <a href="#" class="dropdown-item text-danger">Delete</a>
+        	                                            </div>
+            	                                    </div>
+                	                            </div>
+                    	                    </div>
+                        	            </div>
+                                	</li>
+                                	<li class="list-group-item">
+	                                    <div>
+    	                                    <figure class="avatar">
+        	                                    <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
+            	                            </figure>
+                	                    </div>
+                    	                <div class="users-list-body">
+                        	                <div>
+                            	                <h5>user</h5>
+                                    	    </div>
+                                        	<div class="users-list-action">
+    	                                        <div class="action-toggle">
+        	                                        <div class="dropdown">
+            	                                        <a  href="#">
+                	                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                    	                                </a>
+	                                                </div>
+    	                                        </div>
+        	                                </div>
+            	                        </div>
+                                	</li>
+                            	</ul>
+	                        </div>
+	                    </div>
+            		</div>
+            	</div>
             </div>
-            <hr class="aryan">
-            <br>
-            <div class="part">
-                <img src="https://www.newsgram.com/wp-content/uploads/2018/01/Rani-Laxmi-Bai3.jpeg" style="height:80px;width:80px;border-radius:50%">
-                  <p style="color:white;margin-left:5%;display:inline;">Rani Laxmi Bai</p>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-              </div><hr class="aryan"><br>
-              <div class="part">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Mohandas_K._Gandhi%2C_portrait.jpg" style="height:80px;width:80px;border-radius:50%">
-                    <p style="color:white;margin-left:5%;display:inline;">Mahatma Gandhi</p>
+         <script src="chat.js"></script> 
+         <script>
+            function profileopen(){
+                var x = document.getElementById("contact-information");
+                x.style.display = "block";
+            }
+            function profileclose(){
+                var x= document.getElementById("contact-information");
+                x.style.display = "none";
+            }
+         </script>
 
-
-                </div><hr class="aryan"><br>
-                <div class="part">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Sardar_patel_%28cropped%29.jpg/220px-Sardar_patel_%28cropped%29.jpg" style="height:80px;width:80px;border-radius:50%">
-                      <p style="color:white;margin-left:5%;display:inline;">Sardar Patel</p>
-
-                  </div><hr class="aryan"><br>
-                  <div class="part">
-                      <img src="https://images.assettype.com/swarajya/2019-05/4a6fd9c9-e559-4eba-9eb1-25a0f2527a0b/pjimage__9_.jpg?w=1280&q=100&auto=format&fm=pjpg" style="height:80px;width:80px;border-radius:50%">
-                        <p style="color:white;margin-left:5%;display:inline;">Veer Savarkar</p>
-
-                    </div><br></div>
-<br><br>
-<button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#52B2BF;color:white;font-family: 'Poppins', sans-serif;"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/samsung/220/angry-face_1f620.png" style="height:50px;width:50px;">Report Group</button>
-<button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#52B2BF;color:white;font-family: 'Poppins', sans-serif;"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/samsung/220/worried-face_1f61f.png" style="height:50px;width:50px;">Exit Group</button>
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
+    </body>
 </html>

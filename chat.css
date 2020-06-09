@@ -18,6 +18,10 @@ ul{
     list-style-type: none;
 }
 
+html{
+    --vh : 4.38px!important;
+}
+
 
 .btn.btn-outline-light:not(:disabled):not(.disabled):hover {
 
@@ -703,4 +707,38 @@ figure.avatar-xl > img {
 
 .description-info{
     margin-bottom: 2.5rem;
+}
+
+#profiletoggle:focus, #profiletoggle:active{
+    border: 0px;
+}
+
+@media screen and (max-width: 1120px) {
+    html{
+        --vh : 6.4px!important;
+    }
+    .navigation {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        z-index: 1021;
+    }
+    #chat{
+        display: none;
+        height: 100vh;
+    }
+
+    .chatbox{
+        padding: 0px;
+    }
+    #contact-information{
+        display: none;
+        width: 100vw;
+        z-index: 100;
+    }
+    #sidebar-group-chats{
+        width: 100vw;
+    }
 }

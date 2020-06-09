@@ -12,8 +12,8 @@
     </head>
     <body>
         <div class="layout">
-            <nav class="navigation">
-                <div class="nav-group">
+            <nav class="navigation" id="navigation">
+                <div class="nav-group" id="nav-group">
                     <ul>
                         <li>
                             <a class="active" data-navigation-target="chats" href="#" data-toggle="tooltip" title="" data-placement="right" data-original-title="Chats">
@@ -45,11 +45,16 @@
                 </div>
             </nav>
             <div class="content">
-                <div class="sidebar-group">
-                    <div class="sidebar active">
+                <div class="sidebar-group" id="groups-info">
+                    <div class="sidebar active" id="sidebar-group-chats">
                         <header>
                             <span class="pull-left" style="font-size: 23px;">Chats</span>
                             <ul class="list-inline">
+                                <li class="list-inline-item d-xl-none d-inline" onclick="openmenu()">
+                                    <a href="#" class="btn btn-outline-light mobile-navigation-button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                                    </a>
+                                </li>
                                 <li class="list-inline-item" data-toggle="tooltip" title="" data-original-title="New group">
                                     <a class="btn btn-outline-light" href="#" data-toggle="modal" data-target="#newGroup">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -60,20 +65,21 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
                                     </a>
                                 </li>
-                                <li class="list-inline-item d-xl-none d-inline">
+                                <!---<li class="list-inline-item d-xl-none d-inline">
                                     <a href="#" class="btn btn-outline-light text-danger sidebar-close">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                     </a>
-                                </li>
+                                </li>--->
                             </ul>
                         </header>
 
                         <form>
                             <input type="text" class="form-control" placeholder="Search chats">
                         </form>
+
                         <div class="sidebar-body" style="overflow: hidden; outline: currentcolor none medium;" tabindex="2">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item open-chat">
+                                <li class="list-group-item" id="groups" onclick="openchat()">
                                     <div>
                                         <figure class="avatar">
                                             <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
@@ -103,7 +109,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item">
+                                <li class="list-group-item open-chat" id="groups" onclick="openchat()">
                                     <div>
                                         <figure class="avatar">
                                             <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
@@ -133,7 +139,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item">
+                                <li class="list-group-item" id="groups" onclick="openchat()">
                                     <figure class="avatar">
                                         <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
                                     </figure>
@@ -161,7 +167,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item">
+                                <li class="list-group-item" id="groups" onclick="openchat()">
                                     <div>
                                         <figure class="avatar avatar-state-warning">
                                             <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
@@ -193,7 +199,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item">
+                                <li class="list-group-item" id="groups" onclick="openchat()">
                                     <div>
                                         <figure class="avatar">
                                             <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
@@ -223,7 +229,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item">
+                                <li class="list-group-item" id="groups" onclick="openchat()">
                                     <div>
                                         <figure class="avatar">
                                             <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
@@ -253,7 +259,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item">
+                                <li class="list-group-item" id="groups" onclick="openchat()">
                                     <div>
                                         <figure class="avatar">
                                             <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image"> 
@@ -283,7 +289,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item">
+                                <li class="list-group-item" id="groups" onclick="openchat()">
                                     <div>
                                         <figure class="avatar">
                                             <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
@@ -313,7 +319,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item">
+                                <li class="list-group-item" id="groups" onclick="openchat()">
                                     <div>
                                         <figure class="avatar">
                                             <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
@@ -343,7 +349,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item">
+                                <li class="list-group-item" id="groups" onclick="openchat()">
                                     <div>
                                         <figure class="avatar">
                                             <img src="./card-profile1-square.jpg" class="rounded-circle" alt="image">
@@ -378,7 +384,7 @@
                     </div>
                 </div>
 
-                <div class="chat">
+                <div class="chat" id="chat">
                     <div class="chat-header">
                         <div class="chat-header-user">
                             <figure class="avatar mr-2">
@@ -392,11 +398,6 @@
                             </div>
                         </div>
                         <ul class="list-inline">
-                            <li class="list-inline-item d-xl-none d-inline">
-                                <a href="#" class="btn btn-outline-light mobile-navigation-button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                                </a>
-                            </li>
                             <li class="list-inline-item" data-toggle="tooltip" title="" data-original-title="Voice call">
                                 <a href="#" class="btn btn-outline-light text-success">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="black" d="M15.9 14.3H15l-.3-.3c1-1.1 1.6-2.7 1.6-4.3 0-3.7-3-6.7-6.7-6.7S3 6 3 9.7s3 6.7 6.7 6.7c1.6 0 3.2-.6 4.3-1.6l.3.3v.8l5.1 5.1 1.5-1.5-5-5.2zm-6.2 0c-2.6 0-4.6-2.1-4.6-4.6s2.1-4.6 4.6-4.6 4.6 2.1 4.6 4.6-2 4.6-4.6 4.6z"></path></svg>
@@ -412,11 +413,13 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="#" data-navigation-target="contact-information" class="dropdown-item" >Profile</a>
+                                    <button onclick="profileopen()" id="profiletoggle" style="padding-left: 24; padding: 4px 24px; width: 100%; border: 0px; background-color: white;">
+                                        Profile
+                                    </button>
                                     <a href="#" class="dropdown-item">Add to archive</a>
-                                    <a href="#" class="dropdown-item">Delete</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a href="#" class="dropdown-item text-danger">Block</a>
+                                    <a href="#" class="dropdown-item" style="text-align: center;">Delete</a>
+                                    <div class="dropdown-divider" style="text-align: center;"></div>
+                                    <a href="#" class="dropdown-item text-danger" style="text-align: center;">Block</a>
                                 </div>
                             </li>
                         </ul>
@@ -590,14 +593,14 @@
                     </div>
                 </div>
                 <div class="sidebar-group mobile-open">
-            		<div id="contact-information" class="sidebar active">
+            		<div id="contact-information" class="sidebar" style="overflow-y: scroll;">
             			<header>
             				<span>Profile</span>
                     		<ul class="list-inline">
                         		<li class="list-inline-item mr-auto">
-                            		<a href="#" class="btn btn-outline-light text-danger sidebar-close">
-                                	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-	    	                        </a>
+                            		<button id="profile-close" onclick="profileclose()" class="btn btn-outline-light text-danger sidebar-close">
+                                	    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                    </button>
     	    	                </li>
                 		    </ul>
             			</header>
@@ -710,6 +713,60 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
          <script src="chat.js"></script> 
+         <script>
+             function openchat(){
+                
+                if ($(window).width() < 1120) {
+                    var y = document.getElementById("groups-info");
+                    y.style.display = "none";
+                    var x= document.getElementById("chat");
+                    x.style.display = "flex";
+                }
+                else{
+                    var p = document.getElementsByClassName('open-chat');
+                    p.classList.add('open-chat');
+                    document.querySelector('#groups').addEventListener("click",function(){
+                        var k = document.getElementById("groups");
+                        p.classList.add('open-chat');
+                    })
+                    $("li").click(function() {
+                        $(this).addClass("open-chat");
+                    });
+                    var x= document.getElementById("chat");
+                    x.style.display = "flexbox";
+                }
+            }
+            function profileopen(){
+                var x = document.getElementById("contact-information");
+                x.style.display = "block";
+                var viewportWidth = $(window).width();
+                if (viewportWidth < 1120){
+                    var y = document.getElementById("chat");
+                    y.style.display = "none";
+                }
+            }
+            function profileclose(){
+                var x= document.getElementById("contact-information");
+                x.style.display = "none";
+                if($(window).width() < 1120){
+                    var y = document.getElementById("chat");
+                    y.style.display = "flex";
+                }
+            }
+            function openmenu(){
+                var x = document.getElementById("navigation");
+                if(x.style.display === "none")
+                {
+                    x.style.display = "block";
+                }
+                else
+                {
+                    x.style.display = "none";
+                }   
+            }
+            
+
+         </script>
 
     </body>
 </html>
