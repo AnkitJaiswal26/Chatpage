@@ -258,8 +258,6 @@ svg{
     flex-direction: column;
     border-right: 1px solid #e6e6e6;
     border-left: 1px solid #e6e6e6;
-    width: 1000px;
-    height: 100vh;
 }
 
 .sidebar-body{
