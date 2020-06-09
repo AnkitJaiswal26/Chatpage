@@ -247,6 +247,7 @@ svg{
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
+    overflow: hidden;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
